@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block body %}
+<script src="{{url_for('static', filename='js/validar.js')}}"></script> 
+<div class="container" height="520">
+  <div class="text-center" style="padding:10px 0" >
+    <div class="register-form">
+      <h1 class="text-center">editUsers</h1>
+      {% for r in user %}
+        <form action="{{url_for('editUsers', id=r._id)}}" method="POST">
+          <div class="form-group">
+            <label>nombre completo</label>
+            <input type="text" name="fullname" id ="fullname" value="{{r.fullname}}" class="form-control" placeholder="nombre completo" >
+          </div>
+          <div class="form-group">
+            <label>email</label>
+            <input type="text" name="email" id ="email" value="{{r.email}}" class="form-control" placeholder="direccion de correo" >
+          </div>
+          <div class="form-group">
+            <label>usuario</label>
+            <input type="text" name="username" id ="username"value="{{r.username}}"  class="form-control" placeholder="usuario" >
+          </div>
+          <div class="form-group">
+            <label>country</label>
+            <input type="text" name="country" id ="country"value="{{r.country}}" class="form-control" placeholder="pais" >
+          </div> <div class="form-group">
+            <label>ciudad</label>
+            <input type="text" name="city" id ="city" value="{{r.city}}" class="form-control" placeholder="ciudad" >
+          </div> <div class="form-group">
+            <label>contraseña</label>
+            <input type="text" name="password" id ="password" value="{{r.password}}" class="form-control" placeholder="contraseña" >
+          </div>
+          <div class="form-group" for="Tipo">Tipo de persona: 
+            <br>
+            <div class="form-group">
+              <select class="form-select" aria-label="Default select example" id="typeUsers" value="{{r.typeUsers}}" name="typeUsers">
+                  <option value="">Selecciona tu Rol</option>
+                  <option value="anfitrion">Anfitrión</option>
+                  <option value="invitado">Invitado</option>
+              </select>
+                <br>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <p><input  type="submit" class="btn btn-primary " value="Submit"></p>
+                </div>
+            </div>
+          </div>
+        </form>
+      {%  endfor %}
+    </div>
+  </div>
+</div> 
+{% endblock %}
+  

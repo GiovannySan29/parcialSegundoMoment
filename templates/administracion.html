@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+<script src="{{url_for('static', filename='js/validar_delete.js')}}"></script> 
+<div id="container-fluid">
+    <div class="link-dark">
+        <div class="register-form">
+            <div class="header-content d-flex justify-content-center p-2">
+                <br>
+                <div class="text-center">GESTIÓN DE PRODUCTOS-ADMINISTRACIÓN</div>            
+            </div>
+            <img src="../static/img/logoH.png" alt="Giovanny"  class="logo" >
+                <class="dark">
+                    <div class="col text-center">
+                        <div class="btn-group-vertical" >
+                            <a class="btn btn-success" href="add_apartment" role="button">Agregar Producto Nuevo</a>
+                        <br>
+                            <a class="btn btn-warning" href="dashboard" role="button">Editar Productos</a>
+                        <br>
+                            <a class="btn btn-primary" href="Apartaments" role="button">Listar productos</a>
+                        <br>
+                            <a class="btn btn-info" href="perfil" role="button">Perfil</a>
+                        <br>
+                            <a class="btn btn-primary" href="/edit_user/{{user}}" role="button">Editar usuario</a>
+                        <br>
+                            <a class="btn btn-danger btn-delete" href="/deletUsers/{{user}}" role="button">Eliminar usuario</a>
+                        </div>
+                    </div> 
+            </div>
+    </div>
+</div>
+{% endblock %}

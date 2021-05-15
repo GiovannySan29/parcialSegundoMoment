@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container" height="520">
+  <div class="text-center" style="padding:10px 0" >
+      <div class="register-form">
+        <h1 class="text-center">Apartaments</h1>
+  <ul class="list-group">
+    {% for Apartament in buscar_apartments %}
+      <li class="list-group-item"><a href="buscar_apartments/{{Apartaments._id}}">{{Apartament.city}}</a></li>
+    {% endfor %}
+  </ul>
+      </div>
+  </div>
+</div>
+{% endblock %}

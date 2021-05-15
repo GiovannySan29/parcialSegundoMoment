@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h1>Welcome to your <small> Apartaments {{session.username}}</small></h1>
+  <hr>
+  <section>
+    <div id="container-fluid">
+      <div class="card mt-2 border-light container" style="width: 22rem; height:30rem" id="card" style="width: 18rem;">
+        <img src="{{url_for('static', filename='img/apart1.jpg')}}" alt="...">
+        <div class="card-body bg-light">
+          <div class="card-text">
+            <strong>Cuidad: </strong> {{Apartament.city}} <br>
+            <strong>Written by: </strong> {{Apartament.country}} <br>
+            <strong>Create Data: </strong> {{Apartament.value}} <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
