@@ -74,7 +74,6 @@ def loginUsers():
             return redirect(url_for('home'))
         else:
             return redirect(url_for('administracion'))   
-    
 
 @app.route("/edit_user/<id>")    
 def edit_user(id): 
@@ -141,6 +140,49 @@ def apartments():
     collectionA = collectionApart.find()    
     a1="active"    
     return render_template('Apartaments.html',a1=a1,collectionApart=collectionA)
+
+
+@app.route("/edit_Apartaments/<id>")    
+def edit_Apartaments(id): 
+    apartmentsEd = collectionApart.find_one({'_id': ObjectId(id)})
+    results = []
+    results.append({
+        '_id':apartmentsEd['_id'],
+        'city':apartmentsEd['city'],
+        'country':apartmentsEd['country'],
+        'direction':apartmentsEd['direction'],
+        'location':apartmentsEd['location'],
+        'bedroom':apartmentsEd['username'],
+        'picture':apartmentsEd['picture'],
+        'photo':apartmentsEd['photo'],
+        'value':apartmentsEd['value'],
+        'description':apartmentsEd['description']
+    })
+    return render_template("edit_Apartaments.html", aparts = results)
+
+@app.route('/editApartaments/<id>', methods=['POST'])    
+def editApartaments(id):
+    city=request.form.get("city")    
+    country=request.form.get("country")    
+    direction=request.form.get("direction")    
+    location=request.form.get("location")    
+    bedroom=request.form.get("bedroom")    
+    picture=request.form.get("picture")    
+    photo=request.form.get("photo")    
+    value=request.form.get("value")    
+    description=request.form.get("description")  
+    collectionApart.update_one({'_id':ObjectId(id)},{"$set":{
+        'city':city, 
+        'country':country, 
+        'direction':direction, 
+        'location':location, 
+        'bedroom':bedroom, 
+        'picture':picture,
+        'photo':photo, 
+        'value':value, 
+        'description':description 
+    }})
+    return redirect(url_for('administracion'))
 
 # Check if user logged in
 def is_logged_in(f):

@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container" height="520">
+  <div class="text-center" style="padding:10px 0" >
+      <div class="register-form">
+        <h1 class="text-center">Add Article</h1>
+        {% for a in aparts %}
+          <form action="{{url_for('editApartaments', id=a._id))}}" method="POST">    
+            <div class="form-group">
+              <label>Cuidad</label>
+              <input type="text" id="city"  value="{{a.city}}" name="city" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>Pais</label>
+              <input type="text" id="country" value="{{a.country}}" name="country" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>direccion</label>
+              <input type="text" id="direction" value="{{a.direction}}" name="direction" class="form-control"  />
+            </div>
+            <div class="form-group">
+              <label>Ubicacion</label>
+              <input type="text" id="location" value="{{a.location}}" name="location" class="form-control"  />
+            </div>
+            <div class="form-group">
+              <label>Habitacion</label>
+              <input type="number" id="bedroom" value="{{a.bedroom}}" name="bedroom" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>Imagen</label>
+              <input type="file" id="picture" value="{{a.picture}}" name="picture" class="form-control"   />
+            </div>
+            <div class="form-group">
+              <label>Foto</label>
+              <input type="file" id="photo" value="{{a.photo}}" name="photo" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>Valor</label>
+              <input type="number" id="value" value="{{a.value}}" name="value" class="form-control"  />
+            </div>
+            <div class="form-group">
+              <label>Descripcion</label>
+              <input type="text" id="description" value="{{a.description}}" name="description" class="form-control"   />
+            </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <p><input  type="submit" class="btn btn-primary " value="Submit"></p>
+              </div>  
+            </div>
+          </form>
+        {%  endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}
